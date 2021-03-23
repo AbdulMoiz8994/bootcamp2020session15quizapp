@@ -17,6 +17,7 @@ export const Quiz_service = async (
     return {
       question: questionObj.question,
       answer: questionObj.correct_answer,
+      correct_answer: questionObj.correct_answer,
       option: SuffleArray(
         questionObj.incorrect_answers.concat(questionObj.correct_answer)
       ),

@@ -11,4 +11,5 @@ export type QuestinsQuiz = {
   answer: string;
   question: string;
   option: string[];
+  correct_answer: string
 };
