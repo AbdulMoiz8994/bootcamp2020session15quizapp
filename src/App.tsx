@@ -10,6 +10,7 @@ function App() {
 let [quiz,setQuiz]=useState<QuestinsQuiz[]>([])
 let[handleState,setHandleState]=useState(0)
 let[score,setSocre]=useState(0)
+let [number, setNumber] = useState(0)
 
   useEffect(() => {
     async function fetchData() {
@@ -31,10 +32,13 @@ const currentQuestion: QuestinsQuiz=quiz[handleState]
     }
     if(handleState !== quiz.length -1){
       setHandleState(++handleState)
+      setNumber(++number)
+
     }else{
       alert(`your Socre ${score} out of ${quiz.length}`)
       setHandleState(0)
       setSocre(0)
+      setNumber(0)
     }
   }  
 if(!quiz.length)
@@ -45,7 +49,7 @@ if(!quiz.length)
       <h1>Welome To Quiz App</h1>
       <h3>Your Score</h3>
          <h5>{score}/{quiz.length}</h5>
-
+         <h5>Question: {number}/{quiz.length}</h5>
       <QuestionsCards
            option={quiz[handleState].option}
            question={quiz[handleState].question}
