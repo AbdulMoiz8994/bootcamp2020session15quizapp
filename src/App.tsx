@@ -10,6 +10,7 @@ function App() {
 let [quiz,setQuiz]=useState<QuestinsQuiz[]>([])
 let[handleState,setHandleState]=useState(0)
 let[score,setSocre]=useState(0)
+
   useEffect(() => {
     async function fetchData() {
       const questions:QuestinsQuiz[]=await Quiz_service(10,'easy')
@@ -35,8 +36,7 @@ const currentQuestion: QuestinsQuiz=quiz[handleState]
       setHandleState(0)
       setSocre(0)
     }
-  }
-  
+  }  
 if(!quiz.length)
      return <h2 style={{textAlign: 'center'}}>loading...</h2>
 
@@ -45,6 +45,7 @@ if(!quiz.length)
       <h1>Welome To Quiz App</h1>
       <h3>Your Score</h3>
          <h5>{score}/{quiz.length}</h5>
+
       <QuestionsCards
            option={quiz[handleState].option}
            question={quiz[handleState].question}

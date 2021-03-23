@@ -14,12 +14,17 @@ export const QuestionsCards = ({option,question,handleStateFunc}:questonTypes) =
  
 
 let[selectAns,setSelectAns]=useState("")
+let[number,setNumber]=useState(0)
+
 const onChangeFunc=(e: any) =>{
     setSelectAns(e.target.value)
 }
-
+if(number>10 -1){
+   setNumber(0)
+}
     return (
       <div>
+        <h5>Question: {number}/10</h5>
         <h3>{question}</h3>
         
         <form  onSubmit={(e: React.FormEvent<EventTarget>) =>handleStateFunc(e,selectAns)}>
@@ -34,7 +39,7 @@ return(
 )
 })}
   
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={() => setNumber(++number)}/>
         </form>
       </div>
 
